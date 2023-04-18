@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckIn.MainPage"
+             xmlns:viewmodel="clr-namespace:CheckIn.ViewModel"
+             x:DataType="viewmodel:MainPageViewModel"
+             >
+
+    <ScrollView>
+        <Grid RowDefinitions="*, Auto">
+            <VerticalStackLayout
+                Grid.Row="0"
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center">
+
+                <Image
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HeightRequest="200"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Visitor Registration"
+                    HorizontalTextAlignment="Center"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Welcome to PLACE HERE. Please register below."
+                    HorizontalTextAlignment="Center"
+                    SemanticProperties.HeadingLevel="Level2"
+                    SemanticProperties.Description="Welcome to PLACE HERE"
+                    FontSize="18"
+                    HorizontalOptions="Center" />
+
+                <Button
+                    x:Name="CounterBtn"
+                    Text="Register"
+                    SemanticProperties.Hint="Send you to the register page."
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainPageViewModel}}, Path=RegisterCommand}"
+                    HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+            <Button
+                Grid.Row="1"
+                Text="Previous Visitors"
+                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainPageViewModel}}, Path=PreviousVisitorsCommand}"
+                HorizontalOptions="End"
+                Margin="10"
+                />
+        </Grid>
+    </ScrollView>
+    
+</ContentPage>

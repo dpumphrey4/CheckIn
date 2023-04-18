@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckIn.Pages.PreviousVisitorsPage"
+             xmlns:viewmodel="clr-namespace:CheckIn.ViewModel"
+             x:DataType="viewmodel:PreviousVisitorsViewModel"
+             xmlns:a="clr-namespace:CheckIn.Shared"
+             >
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0">
+            <Label 
+                Text="Previous Visitors"
+                FontSize="32"
+                HorizontalTextAlignment="Center"
+                Margin="10"
+                />
+
+            <CollectionView
+                ItemsSource="{Binding Visitors}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type a:Registration}">
+                        <Grid RowDefinitions="Auto">
+                            <Frame>
+                                <Grid ColumnDefinitions="Auto, *, Auto, *, Auto, *, Auto">
+                                    <Label 
+                                        Grid.Column="0"
+                                        Text="{Binding _firstname}"
+                                        />
+                                   <!-- <Label 
+                                        Grid.Column="2"
+                                        Text="{Binding _middlename}"
+                                        /> -->
+                                    <Label 
+                                        Grid.Column="4"
+                                        Text="{Binding _lastname}"
+                                        />
+                                    <Label 
+                                        Grid.Column="6"
+                                        Text="{Binding _date}"
+                                        />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

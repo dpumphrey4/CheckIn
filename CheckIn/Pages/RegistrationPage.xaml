@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CheckIn.Pages.RegistrationPage"
+             xmlns:viewmodel="clr-namespace:CheckIn.ViewModel"
+             x:DataType="viewmodel:RegistrationViewModel"
+             >
+    <ScrollView>
+        <VerticalStackLayout
+            x:Name="entries"
+            Spacing="25"
+            Padding="30,0"
+            
+            >
+            <Label 
+                Text="Registration Page"
+                FontSize="32"
+                HorizontalTextAlignment="Center"
+                Margin="10"
+                />
+            <Frame>
+                <VerticalStackLayout
+                    Spacing="5">
+                    <Label 
+                        Text="First Name"
+                        />
+                    <Entry 
+                        Placeholder="Type your first name"
+                        Text="{Binding FirstName}"
+                        />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame>
+                <VerticalStackLayout
+                    Spacing="5">
+                    <Label 
+                        Text="Middle Name"
+                        />
+                    <Entry 
+                        Placeholder="Type your middle name"
+                        Text="{Binding MiddleName}"
+                        />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame>
+                <VerticalStackLayout
+                    Spacing="5">
+                    <Label 
+                        Text="Last Name"
+                    />
+                    <Entry 
+                        Placeholder="Type your last name"
+                        Text="{Binding LastName}"
+                        />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame BorderColor="Transparent">
+                <Button
+                    Text="Take a photo"
+                    Command="{Binding TakePhotoCommand}"
+                    MaximumWidthRequest="200"
+                    />
+            </Frame>
+            <Frame HorizontalOptions="Center">
+                <Label Grid.Row="0" HorizontalOptions="CenterAndExpand"
+                            Text="{Binding CurrentDate}"
+                            />
+            </Frame>
+            <Button 
+                Text="Submit"
+                MaximumWidthRequest="300"
+                Margin="0,0,0,30"
+                Command="{Binding SubmitCommand}"
+                />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
